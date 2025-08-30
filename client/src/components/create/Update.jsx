@@ -13,7 +13,7 @@ import axios from 'axios';
 const API = {
   getPostById: async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8000/posts/${id}`);
+      const response = await axios.get(`https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/posts/${id}`);
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error fetching post:", error);
@@ -24,7 +24,7 @@ const API = {
     try {
       // Convert id to number to match backend expectation
       const postId = parseInt(id);
-      const response = await axios.put(`http://localhost:8000/posts/${postId}`, postData);
+      const response = await axios.put(`https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/posts/${postId}`, postData);
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error updating post:", error);
@@ -33,7 +33,7 @@ const API = {
   },
   uploadFile: async (formData) => {
     try {
-      const response = await axios.post('http://localhost:8000/file/upload', formData);
+      const response = await axios.post('https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/upload', formData);
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -107,7 +107,7 @@ const Update = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const url = post.picture ? `http://localhost:8000/file/${post.picture}` : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9pJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+  const url = post.picture ? `https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/${post.picture}` : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9pJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
 
   // Fetch post data
   useEffect(() => {
