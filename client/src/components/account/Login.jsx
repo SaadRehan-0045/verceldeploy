@@ -139,7 +139,7 @@ const Login = ({ isUserAuthenticated }) => {
         }
 
         try {
-            const { data } = await axios.post('http://localhost:8000/adduser', {
+            const { data } = await axios.post('https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/adduser', {
                 user_name: signup.username,
                 password: signup.password,
                 name: signup.name
