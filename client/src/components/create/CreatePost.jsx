@@ -15,7 +15,7 @@ import Comments from '../create/comments/Comments.jsx'; // Adjust the path based
 const API = {
   getAllPosts: async (params = {}) => {
     try {
-      const response = await axios.get('http://localhost:8000/posts', { params });
+      const response = await axios.get('https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/posts', { params });
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -24,7 +24,7 @@ const API = {
   },
   getPostById: async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8000/posts/${id}`);
+      const response = await axios.get(`https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/posts/${id}`);
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error fetching post:", error);
@@ -33,7 +33,7 @@ const API = {
   },
   deletePost: async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/posts/${id}`);
+      const response = await axios.delete(`https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/posts/${id}`);
       return { isSuccess: true, data: response.data };
     } catch (error) {
       console.error("Error deleting post:", error);
@@ -170,7 +170,7 @@ const Author = styled(Box)(({ theme }) => ({
 
 // Post Component
 const Post = ({ post }) => {
-  const url = post.picture ? `http://localhost:8000/file/${post.picture}` : 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80';
+  const url = post.picture ? `https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/${post.picture}` : 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80';
   
   const addEllipsis = (str, limit) => {
     return str.length > limit ? str.substring(0, limit) + '...' : str;
@@ -238,7 +238,7 @@ const DetailView = () => {
 
   // Fixed: Proper image URL handling
   const imageUrl = post.picture 
-    ? `http://localhost:8000/file/${post.picture}` 
+    ? `https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/${post.picture}` 
     : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
 
   const deleteBlog = async () => {  
@@ -305,7 +305,7 @@ const CreatePost = () => {
     }
   }, [location.pathname]);
 
-  const url = post.picture ? `http://localhost:8000/file/${post.picture}` : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+  const url = post.picture ? `https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/${post.picture}` : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles && acceptedFiles.length > 0) {
@@ -329,7 +329,7 @@ const CreatePost = () => {
         data.append("file", file);
         
         try {
-          const uploadResponse = await axios.post('http://localhost:8000/file/upload', data);
+          const uploadResponse = await axios.post('https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/file/upload', data);
           setPost(prev => ({
             ...prev,
             picture: uploadResponse.data.filename
@@ -357,7 +357,7 @@ const CreatePost = () => {
 
   const savePost = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/createpost', post);
+      const response = await axios.post('https://verceldeploy-2nbo-git-main-saads-projects-6ca3a4b7.vercel.app/createpost', post);
       if (response.data.success) {
         navigate('/');
       }
